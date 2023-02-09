@@ -12,19 +12,8 @@ public class Program {
 		// caminho do arquivo.
 		String path = "C:\\temp\\teste.txt";
 
-		// estabelece uma stream de leitura.
-		FileReader fr = null;
-
-		// instanciado através do fr e implementa otimizações.
-		BufferedReader br = null;
-
 		// try para criar e abrir o arquivo
-		try {
-			// estabelece uma stream de leitura a partir do arquivo do caminho indicado.
-			fr = new FileReader(path);
-
-			// pega a stream basica e instancia o esquema de buffer para otimizar a leitura.
-			br = new BufferedReader(fr);
+		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 
 			// ler uma linha do arquivo, se estiver no fim do arquivo retorna null.
 			String line = br.readLine();
@@ -35,17 +24,6 @@ public class Program {
 			}
 		} catch (IOException e) {
 			System.out.println("Error: " + e.getMessage());
-		} finally {
-			try {
-				if (br != null) {
-					br.close();
-				}
-				if (fr != null) {
-					fr.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 	}
 }
