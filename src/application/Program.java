@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/*
+ * Forma otimizada, utilizando try-with-resources
+ */
+
 // implementação básica (processo manual)
 public class Program {
 
